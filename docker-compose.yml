@@ -19,9 +19,9 @@ services:
     restart: always
     networks:
       - proxy
-    environment:
-      - VIRTUAL_HOST=portainer.direct2resort.com
-      - VIRTUAL_PORT=9000
+    # environment:
+    #   - VIRTUAL_HOST=portainer.direct2resort.com
+    #   - VIRTUAL_PORT=9000
     ports:
       - 8000:8000
     volumes:

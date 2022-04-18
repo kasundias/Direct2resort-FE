@@ -41,7 +41,6 @@ services:
   web:
     image: iconkam/get-started:part2
     deploy:
-      replicas: 5
       resources:
         limits:
           cpus: "0.1"

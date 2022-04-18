@@ -76,22 +76,22 @@ services:
     networks:
       - app-network
 
-  node:
-    container_name: nodeapp
-    image: nodeapp
-    build:
-      context: ./microservices/node
-      dockerfile: .docker/node.development.dockerfile
-    volumes:
-      - ./microservices/node:/var/www/angularnoderestfulservice
-    environment:
-      - NODE_ENV=development
-    ports:
-      - "3000:3000"
-    depends_on: 
-      - mongodb
-    networks:
-      - app-network
+  # node:
+  #   container_name: nodeapp
+  #   image: nodeapp
+  #   build:
+  #     context: ./microservices/node
+  #     dockerfile: .docker/node.development.dockerfile
+  #   volumes:
+  #     - ./microservices/node:/var/www/angularnoderestfulservice
+  #   environment:
+  #     - NODE_ENV=development
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on: 
+  #     - mongodb
+  #   networks:
+  #     - app-network
       
   #No authentication is provided here - JUST A DEMO! That would absolutely
   #be needed for a "real" application

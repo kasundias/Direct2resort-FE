@@ -57,36 +57,32 @@
 #   webnet:
 
 
-version: '3.6'
+# version: '3.6'
+# services:
+#   nginx-example:
+#     image: nginx:latest
+# web:
+#     ports:
+#       - "80:80"
+# networks:
+#   default:
+#     name: ${test:-tmp}
+#     driver: bridge
+
+
+
+version: "3"
 services:
-  nginx-example:
+  web:
     image: nginx:latest
-web:
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - .:/app
     ports:
       - "80:80"
 networks:
   default:
     name: ${test:-tmp}
     driver: bridge
-
-
-
-# version: "3"
-# services:
-#   web:
-#     image: iconkam/get-started:part2
-#     deploy:
-#       resources:
-#         limits:
-#           cpus: "0.1"
-#           memory: 50M
-#       restart_policy:
-#         condition: on-failure
-#     volumes:
-#       - .:/app
-#     ports:
-#       - "80:80"
-#     networks:
-#       - webnet
-# networks:
-#   webnet:

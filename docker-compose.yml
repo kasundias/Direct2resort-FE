@@ -95,47 +95,47 @@ services:
       
   #No authentication is provided here - JUST A DEMO! That would absolutely
   #be needed for a "real" application
-  mongodb:
-    container_name: mongodb
-    image: mongo
-    networks:
-      - app-network
+  # mongodb:
+  #   container_name: mongodb
+  #   image: mongo
+  #   networks:
+  #     - app-network
 
-  aspnet:
-    container_name: 'aspnetcoreapp'
-    image: 'aspnetcoreapp'
-    build:
-      context: ./microservices/aspnet_core
-      dockerfile: .docker/aspnetcore.development.dockerfile
-    volumes:
-      - ./microservices/aspnet_core:/var/www/aspnetcoreapp
-    ports:
-     - "5000:5000"
-    depends_on:
-     - "postgres"
-    networks:
-      - app-network
+  # aspnet:
+  #   container_name: 'aspnetcoreapp'
+  #   image: 'aspnetcoreapp'
+  #   build:
+  #     context: ./microservices/aspnet_core
+  #     dockerfile: .docker/aspnetcore.development.dockerfile
+  #   volumes:
+  #     - ./microservices/aspnet_core:/var/www/aspnetcoreapp
+  #   ports:
+  #    - "5000:5000"
+  #   depends_on:
+  #    - "postgres"
+  #   networks:
+  #     - app-network
 
-  postgres:
-    container_name: 'postgres'
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: password
-    networks:
-      - app-network
+  # postgres:
+  #   container_name: 'postgres'
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  #   networks:
+  #     - app-network
 
-  cadvisor:
-    container_name: cadvisor
-    image: google/cadvisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    ports:
-      - "8080:8080"
-    networks:
-      - app-network
+  # cadvisor:
+  #   container_name: cadvisor
+  #   image: google/cadvisor
+  #   volumes:
+  #     - /:/rootfs:ro
+  #     - /var/run:/var/run:rw
+  #     - /sys:/sys:ro
+  #     - /var/lib/docker/:/var/lib/docker:ro
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - app-network
 
 networks:
   app-network:

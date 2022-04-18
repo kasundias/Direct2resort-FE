@@ -74,7 +74,8 @@ services:
       - "443:443"
 
     networks:
-      - app-network
+      app-network:
+        driver: bridge
 
   # node:
   #   container_name: nodeapp
@@ -137,6 +138,3 @@ services:
   #   networks:
   #     - app-network
 
-networks:
-  app-network:
-    driver: bridge
